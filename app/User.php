@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'balance', 'phone_num', 'address'
     ];
 
     /**
@@ -27,4 +27,17 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function fname(){
+        $words = explode(" ", trim($this->name) );
+        return strtoupper($words[0]);
+    }
+
+    public function balance(){
+        return number_format($this->balance);
+    }
+
+    public function rates(){
+        return $this->hasMany('App\Rate', 'user_id', 'id');
+    }
 }
