@@ -251,6 +251,7 @@
 </div>
 <!--===============================================================================================-->
 <script type="text/javascript" src="{{ asset('assets/jquery/jquery-3.2.1.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/SmoothScroll.min.js') }}"></script>
 <!--===============================================================================================-->
 <script type="text/javascript" src="{{ asset('assets/bootstrap/js/popper.js') }}"></script>
 <script type="text/javascript" src="{{ asset('assets/bootstrap/js/bootstrap.min.js') }}"></script>
