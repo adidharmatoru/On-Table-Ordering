@@ -36,3 +36,5 @@ Route::get('/about', 'AboutController@index')->name('about');
 Route::get('/contact', 'ContactController@index')->name('contact');
 
 Route::get('/chekout', 'CheckoutController@index')->name('checkout');
+
+

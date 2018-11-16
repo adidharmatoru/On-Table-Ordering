@@ -6,6 +6,7 @@ use App\Cart;
 use App\Categories;
 use App\Product;
 use App\Rate;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use DB;
@@ -29,13 +30,20 @@ class HomeController extends Controller
      */
     public function home()
     {
-        $cart = Cart::with('products')->where('user_id', Auth::id())->get();
-        $categories = Categories::all();
-        $rates = Rate::all()->toArray();
-        $data = DB::table('products')->paginate(6);
-        $gallery = Product::all()->random(6);
-        $counts = Cart::with('products')->where('user_id', Auth::id())->count();
-        return view('home', compact('cart'))->with('categories', $categories)->with('rates', $rates)->with('data', $data)->with('gallery', $gallery)->with('counts', $counts);
+        if (Auth::user()->admin == 0){
+            $cart = Cart::with('products')->where('user_id', Auth::id())->get();
+            $categories = Categories::all();
+            $rates = Rate::all()->toArray();
+            $data = DB::table('products')->paginate(6);
+            $gallery = Product::all()->random(6);
+            $counts = Cart::with('products')->where('user_id', Auth::id())->count();
+            return view('home', compact('cart'))->with('categories', $categories)->with('rates', $rates)->with('data', $data)->with('gallery', $gallery)->with('counts', $counts);
+        } else {
+            $users = User::all();
+            $user_count = User::all()->count();
+            $products = DB::table('products')->paginate(6);
+            return view('admin.home', $users)->with('products', $products)->with('user_count', $user_count);
+        }
     }
 
     public function fetch_data(Request $request){

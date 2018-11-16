@@ -22,6 +22,7 @@ class CreateUsersTable extends Migration
             $table->integer('balance')->nullable();
             $table->string('phone_num')->nullable();
             $table->text('address')->nullable();
+            $table->boolean('admin')->default(0);
             $table->rememberToken();
             $table->timestamps();
         });
