@@ -21,6 +21,8 @@ Route::get('/home/fetch_data', 'HomeController@fetch_data');
 
 Route::get('/home/action', 'HomeController@action')->name('live_search.action');
 
+Route::get('/home/special', 'HomeController@special')->name('special');
+
 Route::get('/home/categories', 'HomeController@categories');
 
 Route::get('/home/delete', 'HomeController@deletefromcart')->name('deletefromcart');

@@ -18,11 +18,11 @@
                                         <i class="fa fa-rocket"></i>
                                     </div>
                                     <div class="stat">
-                                        <div class="value"> 5407 </div>
+                                        <div class="value"> {{$product_count}} </div>
                                         <div class="name"> Active items </div>
                                     </div>
                                     <div class="progress stat-progress">
-                                        <div class="progress-bar" style="width: 75%;"></div>
+                                        <div class="progress-bar" style="width: 100%;"></div>
                                     </div>
                                 </div>
                                 <div class="col-12 col-sm-6 stat-col">
@@ -30,11 +30,11 @@
                                         <i class="fa fa-shopping-cart"></i>
                                     </div>
                                     <div class="stat">
-                                        <div class="value"> 78464 </div>
-                                        <div class="name"> Items sold </div>
+                                        <div class="value"> {{$transaction_count}} </div>
+                                        <div class="name"> Transactions done </div>
                                     </div>
                                     <div class="progress stat-progress">
-                                        <div class="progress-bar" style="width: 25%;"></div>
+                                        <div class="progress-bar" style="width: 100%;"></div>
                                     </div>
                                 </div>
                                 <div class="col-12 col-sm-6  stat-col">
@@ -46,7 +46,7 @@
                                         <div class="name"> Total users </div>
                                     </div>
                                     <div class="progress stat-progress">
-                                        <div class="progress-bar" style="width: 34%;"></div>
+                                        <div class="progress-bar" style="width: 100%;"></div>
                                     </div>
                                 </div>
                                 <div class="col-12 col-sm-6 stat-col">
@@ -54,11 +54,11 @@
                                         <i class="fa fa-dollar"></i>
                                     </div>
                                     <div class="stat">
-                                        <div class="value"> $780.064 </div>
+                                        <div class="value"> Rp  </div>
                                         <div class="name"> Total income </div>
                                     </div>
                                     <div class="progress stat-progress">
-                                        <div class="progress-bar" style="width: 15%;"></div>
+                                        <div class="progress-bar" style="width: 100%;"></div>
                                     </div>
                                 </div>
                             </div>
@@ -123,7 +123,7 @@
                                 </div>
                             </li>
                             @foreach($products as $pro)
-                            <li class="item">
+                            <li id="products" class="item">
                                 <div class="item-row">
                                     <div class="item-col fixed item-col-img">
                                         <a href="#">
@@ -143,7 +143,7 @@
                                     </div>
                                     <div class="item-col item-col-stats">
                                         <label>
-                                            <input class="radio" type="radio" name="special" value="1" @if(($pro->special == 1)) checked @endif>
+                                            <input class="radio special" id="{{$pro->id}}" type="radio" name="special" value="1" @if(($pro->special == 1)) checked @endif>
                                             <span></span>
                                         </label>
                                     </div>

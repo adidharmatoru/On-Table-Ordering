@@ -365,6 +365,22 @@
 </div>
 <script src="js/vendor.js"></script>
 <script src="js/admin.js"></script>
+<script>
+    $(document).ready(function() {
+
+        <!-- special -->
+
+        $(document).on('click', '.special', function () {
+            var id = $(this).attr('id');
+            $.ajax({
+                url: '{{route('special')}}',
+                data: {id: id},
+                success: function (data) {
+                }
+            });
+        });
+    });
+</script>
 </body>
 
 </html>

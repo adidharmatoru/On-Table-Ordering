@@ -6,6 +6,7 @@ use App\Cart;
 use App\Categories;
 use App\Product;
 use App\Rate;
+use App\Transaction;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -40,9 +41,20 @@ class HomeController extends Controller
             return view('home', compact('cart'))->with('categories', $categories)->with('rates', $rates)->with('data', $data)->with('gallery', $gallery)->with('counts', $counts);
         } else {
             $users = User::all();
-            $user_count = User::all()->count();
+            $user_count = User::where('admin', 0)->count();
+            $product_count = Product::all()->count();
+            $transaction_count = Transaction::all()->count();
             $products = DB::table('products')->paginate(6);
-            return view('admin.home', $users)->with('products', $products)->with('user_count', $user_count);
+            return view('admin.home', $users)->with('products', $products)->with('user_count', $user_count)->with('product_count', $product_count)->with('transaction_count', $transaction_count);
+        }
+    }
+
+    public function special(Request $request)
+    {
+        if ($request->ajax()) {
+            $query = $request->get('id');
+            Product::where('special', 1)->update( array('special'=>0) );
+            $product = Product::where('id', $query)->update( array('special'=>1));
         }
     }
 
