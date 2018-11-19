@@ -2459,9 +2459,6 @@ $(function() {
             $styleLink.attr('href', 'css/admin.css');
         }
 
-        // App classes
-        $app.removeClass('header-fixed footer-fixed sidebar-fixed');
-
         // set header
         $app.addClass(themeSettings.headerPosition);
 

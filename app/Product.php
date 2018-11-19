@@ -22,4 +22,8 @@ class Product extends Model
     public function rates(){
         return $this->hasMany('App\Rate', 'user_id', 'id');
     }
+
+    public function categories(){
+        return $this->belongsTo('App\Categories', 'cat_id', 'id');
+    }
 }

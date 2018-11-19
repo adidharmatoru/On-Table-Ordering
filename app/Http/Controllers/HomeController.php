@@ -42,11 +42,48 @@ class HomeController extends Controller
         } else {
             $users = User::all();
             $user_count = User::where('admin', 0)->count();
+            $categories = Categories::all();
             $product_count = Product::all()->count();
             $transaction_count = Transaction::all()->count();
-            $products = DB::table('products')->paginate(6);
-            return view('admin.home', $users)->with('products', $products)->with('user_count', $user_count)->with('product_count', $product_count)->with('transaction_count', $transaction_count);
+            $products = Product::with('categories')->paginate(6);
+            $income = Transaction::all();
+            return view('admin.home', $users)->with('products', $products)->with('user_count', $user_count)->with('product_count', $product_count)->with('transaction_count', $transaction_count)->with('categories', $categories)->with('income', $income);
         }
+    }
+
+    public function removemenu (Request $request){
+        if ($request->ajax()){
+            $query = $request->get('id');
+            Product::where('id', $query)->delete();
+        }
+    }
+
+    public function addmenu(Request $request){
+            $input = $request->all();
+            $input['image'] = time().'.'.$request->image->getClientOriginalExtension();
+            $request->image->move(public_path('images'), $input['image']);
+            $cat_id = $request->input('cat-new');
+            $title = $request->input('title-new');
+            $price = $request->input('price-new');
+            $description = $request->input('desc-inp');
+            $product = new Product();
+            $product->cat_id = $cat_id;
+            $product->brand_id = 1;
+            $product->title = $title;
+            $product->price = $price;
+            $product->description = $description;
+            $product->image = $input['image'];
+            $product->keyword = $title;
+            $product->save();
+        $users = User::all();
+        $user_count = User::where('admin', 0)->count();
+        $categories = Categories::all();
+        $product_count = Product::all()->count();
+        $transaction_count = Transaction::all()->count();
+        $products = Product::with('categories')->paginate(6);
+        $income = Transaction::all();
+        $income += $income->amount;
+        return view('admin.home', $users)->with('products', $products)->with('user_count', $user_count)->with('product_count', $product_count)->with('transaction_count', $transaction_count)->with('categories', $categories)->with('income', $income);
     }
 
     public function special(Request $request)

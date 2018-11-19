@@ -23,6 +23,10 @@ Route::get('/home/action', 'HomeController@action')->name('live_search.action');
 
 Route::get('/home/special', 'HomeController@special')->name('special');
 
+Route::get('/home/remove', 'HomeController@removemenu')->name('remove_menu');
+
+Route::post('/home', 'HomeController@addmenu')->name('add_menu');
+
 Route::get('/home/categories', 'HomeController@categories');
 
 Route::get('/home/delete', 'HomeController@deletefromcart')->name('deletefromcart');

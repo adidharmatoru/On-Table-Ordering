@@ -34,7 +34,7 @@
 </head>
 <body>
 <div class="main-wrapper">
-    <div class="app" id="app">
+    <div class="app header-fixed footer-fixed sidebar-fixed" id="app">
         <header class="header">
             <div class="header-block header-block-collapse d-lg-none d-xl-none">
                 <button class="collapse-btn" id="sidebar-collapse-btn">
@@ -49,8 +49,8 @@
                             <span class="name"> {{ Auth::user()->name }} </span>
                         </a>
                         <div class="dropdown-menu profile-dropdown-menu" aria-labelledby="dropdownMenu1">
-                            <a class="dropdown-item" href="#">
-                                <i class="fa fa-user icon"></i> Profile </a>
+                            <!-- <a class="dropdown-item" href="#">
+                                <i class="fa fa-user icon"></i> Profile </a> -->
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -80,80 +80,6 @@
                     </ul>
                 </nav>
             </div>
-            <footer class="sidebar-footer">
-                <ul class="sidebar-menu metismenu" id="customize-menu">
-                    <li>
-                        <ul>
-                            <li class="customize">
-                                <div class="customize-item">
-                                    <div class="row customize-header">
-                                        <div class="col-4"> </div>
-                                        <div class="col-4">
-                                            <label class="title">fixed</label>
-                                        </div>
-                                        <div class="col-4">
-                                            <label class="title">static</label>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-4">
-                                            <label class="title">Sidebar:</label>
-                                        </div>
-                                        <div class="col-4">
-                                            <label>
-                                                <input class="radio" type="radio" name="sidebarPosition" value="sidebar-fixed">
-                                                <span></span>
-                                            </label>
-                                        </div>
-                                        <div class="col-4">
-                                            <label>
-                                                <input class="radio" type="radio" name="sidebarPosition" value="">
-                                                <span></span>
-                                            </label>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-4">
-                                            <label class="title">Header:</label>
-                                        </div>
-                                        <div class="col-4">
-                                            <label>
-                                                <input class="radio" type="radio" name="headerPosition" value="header-fixed">
-                                                <span></span>
-                                            </label>
-                                        </div>
-                                        <div class="col-4">
-                                            <label>
-                                                <input class="radio" type="radio" name="headerPosition" value="">
-                                                <span></span>
-                                            </label>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-4">
-                                            <label class="title">Footer:</label>
-                                        </div>
-                                        <div class="col-4">
-                                            <label>
-                                                <input class="radio" type="radio" name="footerPosition" value="footer-fixed">
-                                                <span></span>
-                                            </label>
-                                        </div>
-                                        <div class="col-4">
-                                            <label>
-                                                <input class="radio" type="radio" name="footerPosition" value="">
-                                                <span></span>
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                        <a href="#">
-                            <i class="fa fa-cog"></i> Customize </a>
-                    </li>
-                </ul>
-            </footer>
         </aside>
         @yield('content')
     </div>
@@ -175,6 +101,184 @@
                     </li>
                 </ul>
                 <div class="tab-content modal-tab-content">
+                    <form action="{{route('add_menu')}}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <div class="card card-block">
+                            <div class="form-group row">
+                                <label class="col-sm-2 form-control-label text-xs-right"> Name: </label>
+                                <div class="col-sm-10">
+                                    <input type="text" id="title-new"  name="title-new" class="form-control boxed" placeholder=""> </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-2 form-control-label text-xs-right"> Description: </label>
+                                <div class="col-sm-10">
+                                    <div class="wyswyg">
+                                        <div class="toolbar">
+                                            <select class="ql-size">
+                                                <option value="small"></option>
+                                                <option selected></option>
+                                                <option value="large"></option>
+                                                <option value="huge"></option>
+                                            </select>
+                                            <button class="ql-bold"></button>
+                                            <button class="ql-italic"></button>
+                                            <button class="ql-underline"></button>
+                                            <button class="ql-strike"></button>
+                                            <select title="Text Color" class="ql-color">
+                                                <option value="rgb(0, 0, 0)" label="rgb(0, 0, 0)" selected></option>
+                                                <option value="rgb(230, 0, 0)" label="rgb(230, 0, 0)"></option>
+                                                <option value="rgb(255, 153, 0)" label="rgb(255, 153, 0)"></option>
+                                                <option value="rgb(255, 255, 0)" label="rgb(255, 255, 0)"></option>
+                                                <option value="rgb(0, 138, 0)" label="rgb(0, 138, 0)"></option>
+                                                <option value="rgb(0, 102, 204)" label="rgb(0, 102, 204)"></option>
+                                                <option value="rgb(153, 51, 255)" label="rgb(153, 51, 255)"></option>
+                                                <option value="rgb(255, 255, 255)" label="rgb(255, 255, 255)"></option>
+                                                <option value="rgb(250, 204, 204)" label="rgb(250, 204, 204)"></option>
+                                                <option value="rgb(255, 235, 204)" label="rgb(255, 235, 204)"></option>
+                                                <option value="rgb(255, 255, 204)" label="rgb(255, 255, 204)"></option>
+                                                <option value="rgb(204, 232, 204)" label="rgb(204, 232, 204)"></option>
+                                                <option value="rgb(204, 224, 245)" label="rgb(204, 224, 245)"></option>
+                                                <option value="rgb(235, 214, 255)" label="rgb(235, 214, 255)"></option>
+                                                <option value="rgb(187, 187, 187)" label="rgb(187, 187, 187)"></option>
+                                                <option value="rgb(240, 102, 102)" label="rgb(240, 102, 102)"></option>
+                                                <option value="rgb(255, 194, 102)" label="rgb(255, 194, 102)"></option>
+                                                <option value="rgb(255, 255, 102)" label="rgb(255, 255, 102)"></option>
+                                                <option value="rgb(102, 185, 102)" label="rgb(102, 185, 102)"></option>
+                                                <option value="rgb(102, 163, 224)" label="rgb(102, 163, 224)"></option>
+                                                <option value="rgb(194, 133, 255)" label="rgb(194, 133, 255)"></option>
+                                                <option value="rgb(136, 136, 136)" label="rgb(136, 136, 136)"></option>
+                                                <option value="rgb(161, 0, 0)" label="rgb(161, 0, 0)"></option>
+                                                <option value="rgb(178, 107, 0)" label="rgb(178, 107, 0)"></option>
+                                                <option value="rgb(178, 178, 0)" label="rgb(178, 178, 0)"></option>
+                                                <option value="rgb(0, 97, 0)" label="rgb(0, 97, 0)"></option>
+                                                <option value="rgb(0, 71, 178)" label="rgb(0, 71, 178)"></option>
+                                                <option value="rgb(107, 36, 178)" label="rgb(107, 36, 178)"></option>
+                                                <option value="rgb(68, 68, 68)" label="rgb(68, 68, 68)"></option>
+                                                <option value="rgb(92, 0, 0)" label="rgb(92, 0, 0)"></option>
+                                                <option value="rgb(102, 61, 0)" label="rgb(102, 61, 0)"></option>
+                                                <option value="rgb(102, 102, 0)" label="rgb(102, 102, 0)"></option>
+                                                <option value="rgb(0, 55, 0)" label="rgb(0, 55, 0)"></option>
+                                                <option value="rgb(0, 41, 102)" label="rgb(0, 41, 102)"></option>
+                                                <option value="rgb(61, 20, 102)" label="rgb(61, 20, 102)"></option>
+                                            </select>
+                                            <select title="Background Color" class="ql-background">
+                                                <option value="rgb(0, 0, 0)" label="rgb(0, 0, 0)"></option>
+                                                <option value="rgb(230, 0, 0)" label="rgb(230, 0, 0)"></option>
+                                                <option value="rgb(255, 153, 0)" label="rgb(255, 153, 0)"></option>
+                                                <option value="rgb(255, 255, 0)" label="rgb(255, 255, 0)"></option>
+                                                <option value="rgb(0, 138, 0)" label="rgb(0, 138, 0)"></option>
+                                                <option value="rgb(0, 102, 204)" label="rgb(0, 102, 204)"></option>
+                                                <option value="rgb(153, 51, 255)" label="rgb(153, 51, 255)"></option>
+                                                <option value="rgb(255, 255, 255)" label="rgb(255, 255, 255)" selected></option>
+                                                <option value="rgb(250, 204, 204)" label="rgb(250, 204, 204)"></option>
+                                                <option value="rgb(255, 235, 204)" label="rgb(255, 235, 204)"></option>
+                                                <option value="rgb(255, 255, 204)" label="rgb(255, 255, 204)"></option>
+                                                <option value="rgb(204, 232, 204)" label="rgb(204, 232, 204)"></option>
+                                                <option value="rgb(204, 224, 245)" label="rgb(204, 224, 245)"></option>
+                                                <option value="rgb(235, 214, 255)" label="rgb(235, 214, 255)"></option>
+                                                <option value="rgb(187, 187, 187)" label="rgb(187, 187, 187)"></option>
+                                                <option value="rgb(240, 102, 102)" label="rgb(240, 102, 102)"></option>
+                                                <option value="rgb(255, 194, 102)" label="rgb(255, 194, 102)"></option>
+                                                <option value="rgb(255, 255, 102)" label="rgb(255, 255, 102)"></option>
+                                                <option value="rgb(102, 185, 102)" label="rgb(102, 185, 102)"></option>
+                                                <option value="rgb(102, 163, 224)" label="rgb(102, 163, 224)"></option>
+                                                <option value="rgb(194, 133, 255)" label="rgb(194, 133, 255)"></option>
+                                                <option value="rgb(136, 136, 136)" label="rgb(136, 136, 136)"></option>
+                                                <option value="rgb(161, 0, 0)" label="rgb(161, 0, 0)"></option>
+                                                <option value="rgb(178, 107, 0)" label="rgb(178, 107, 0)"></option>
+                                                <option value="rgb(178, 178, 0)" label="rgb(178, 178, 0)"></option>
+                                                <option value="rgb(0, 97, 0)" label="rgb(0, 97, 0)"></option>
+                                                <option value="rgb(0, 71, 178)" label="rgb(0, 71, 178)"></option>
+                                                <option value="rgb(107, 36, 178)" label="rgb(107, 36, 178)"></option>
+                                                <option value="rgb(68, 68, 68)" label="rgb(68, 68, 68)"></option>
+                                                <option value="rgb(92, 0, 0)" label="rgb(92, 0, 0)"></option>
+                                                <option value="rgb(102, 61, 0)" label="rgb(102, 61, 0)"></option>
+                                                <option value="rgb(102, 102, 0)" label="rgb(102, 102, 0)"></option>
+                                                <option value="rgb(0, 55, 0)" label="rgb(0, 55, 0)"></option>
+                                                <option value="rgb(0, 41, 102)" label="rgb(0, 41, 102)"></option>
+                                                <option value="rgb(61, 20, 102)" label="rgb(61, 20, 102)"></option>
+                                            </select>
+                                            <button class="ql-list" value="ordered"></button>
+                                            <button class="ql-list" value="bullet"></button>
+                                            <select title="Text Alignment" class="ql-align">
+                                                <option selected></option>
+                                                <option value="center" label="Center"></option>
+                                                <option value="right" label="Right"></option>
+                                                <option value="justify" label="Justify"></option>
+                                            </select>
+                                            <button class="ql-link"></button>
+                                            <button style="width: auto;" type="button" title="Image" class="btn btn-secondary btn-sm" data-toggle="modal" data-target="#modal-media">
+                                                <i class="fa fa-image"></i> Media </button>
+                                        </div>
+                                        <div id="desc-new" class="editor"></div>
+                                        <input type="hidden" name="desc-inp" id="desc-inp">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-2 form-control-label text-xs-right"> Price: </label>
+                                <div class="col-sm-10">
+                                    <input id="price-new" name="price-new" type="number" class="form-control boxed" placeholder=""> </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-2 form-control-label text-xs-right"> Category: </label>
+                                <div class="col-sm-10">
+                                    <select id="cat-new" name="cat-new" class="c-select form-control boxed">
+                                        <option selected disabled>Select Category</option>
+                                    @foreach($categories as $cat)
+                                        <option value="{{$cat->id}}">{{$cat->title}}</option>
+                                            @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-2 form-control-label text-xs-right"> Images: </label>
+                                <input type="file" name="image" id="prod_image" name="image" hidden>
+                                <div class="col-sm-10">
+                                    <div class="images-container">
+                                        <a href="#" class="add-image" data-toggle="modal" data-target="#modal-media">
+                                            <div class="image-container new">
+                                                <div class="image">
+                                                    <div onclick="document.getElementById('prod_image').click()" id="dropzone">
+                                                        <i class="fa fa-plus"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-10 col-sm-offset-2">
+                                    <button type="submit" class="btn btn-primary submit-new"> Submit </button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<div class="modal fade" id="modal-edit">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Edit Menu</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+            </div>
+            <div class="modal-body modal-tab-container">
+                <ul class="nav nav-tabs modal-tabs" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#insert" data-toggle="tab" role="tab">Edit</a>
+                    </li>
+                </ul>
+                <div class="tab-content modal-tab-content">
                     <form action="" method="GET" enctype="multipart/form-data">
                         <div class="card card-block">
                             <div class="form-group row">
@@ -183,7 +287,7 @@
                                     <input type="text" class="form-control boxed" placeholder=""> </div>
                             </div>
                             <div class="form-group row">
-                                <label class="col-sm-2 form-control-label text-xs-right"> Content: </label>
+                                <label class="col-sm-2 form-control-label text-xs-right"> Description: </label>
                                 <div class="col-sm-10">
                                     <div class="wyswyg">
                                         <div class="toolbar">
@@ -322,15 +426,12 @@
                             </div>
                             <div class="form-group row">
                                 <div class="col-sm-10 col-sm-offset-2">
-                                    <button type="submit" class="btn btn-primary"> Submit </button>
+                                    <button type="submit" class="btn btn-primary btn_add" onclick="event.preventDefault()"> Submit </button>
                                 </div>
                             </div>
                         </div>
                     </form>
                 </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             </div>
         </div>
         <!-- /.modal-content -->
@@ -352,7 +453,7 @@
                 <p>Are you sure want to do this?</p>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-dismiss="modal">Yes</button>
+                <button type="button" class="btn btn-primary btn_remove" data-dismiss="modal">Yes</button>
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
             </div>
         </div>
@@ -378,6 +479,27 @@
                 success: function (data) {
                 }
             });
+        });
+
+        <!-- deletemenu -->
+
+        $(document).on('click', '.remove', function () {
+            var id = $(this).attr('id');
+            $(document).on('click', '.btn_remove', function () {
+                $.ajax({
+                    url: '{{route('remove_menu')}}',
+                    data: {id: id},
+                    success: function (data) {
+                        $('#item-'+id).remove();
+                    }
+                });
+            });
+        });
+
+        <!-- addMenu -->
+
+        $(document).on('click', '.submit-new', function () {
+            document.getElementById('desc-inp').value = document.getElementById('desc-new').innerHTML;
         });
     });
 </script>
