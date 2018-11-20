@@ -464,6 +464,7 @@
 <!-- /.modal -->
 </div>
 </div>
+<script type="text/javascript" src="{{ asset('js/SmoothScroll.min.js') }}"></script>
 <script src="js/vendor.js"></script>
 <script src="js/admin.js"></script>
 <script>

@@ -162,7 +162,6 @@
         </div>
     </div>
 </aside>
-
             @yield('content')
 <!-- Footer -->
 <footer class="bg1">

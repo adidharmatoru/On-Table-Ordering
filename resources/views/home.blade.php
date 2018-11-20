@@ -16,7 +16,7 @@
                     @endif
                     <div class="bread-crumb bo5-b p-t-17 p-b-17">
                         <div class="container">
-                            <a href="index.html" class="txt27">
+                            <a href="{{route('home')}}" class="txt27">
                                 Menu
                             </a>
                         </div>

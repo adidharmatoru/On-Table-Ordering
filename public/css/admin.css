@@ -1610,10 +1610,10 @@ span a {
 /* Handle */
 ::-webkit-scrollbar-thumb {
   border-radius: 0;
-  background: #78bd2e; }
+  background: #669D31; }
 
 ::-webkit-scrollbar-thumb:window-inactive {
-  background: #85CE36; }
+  background: #669D31; }
 
 .error-card {
   width: 410px;

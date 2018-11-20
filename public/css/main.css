@@ -1783,3 +1783,12 @@ body {
 .dropdown:hover .dropdown-content {display: block;}
 
 .show {display: block;}
+
+::-webkit-scrollbar {
+    width: 7px;
+    height: 7px; }
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    border-radius: 0;
+    background: #669D31; }

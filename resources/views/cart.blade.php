@@ -16,14 +16,17 @@
 <a href="#" ><i class="fa fa-shopping-cart m-l-21" aria-hidden="true"></i><span class="badge" style="background-color: #333333; position: relative; top: -15px;">{{$counts}}</span></a>
 <div id="cartDrop" class="dropdown-content">
     <table class="table table-borderless" cellspacing="0" width="100%">
-        <tr>
-            <td>No</td>
-            <td>Gambar</td>
-            <td>Nama</td>
-            <td>Harga Satuan (Rp)</td>
-            <td>Qty</td>
-            <td>Action</td>
-        </tr>
+        <thead style="display: block;">
+            <tr>
+                <td>No</td>
+                <td>Gambar</td>
+                <td>Nama</td>
+                <td>Harga Satuan (Rp)</td>
+                <td>Qty</td>
+                <td>Action</td>
+            </tr>
+        </thead>
+        <tbody style="display: block; height: 300px;overflow-y: auto;">
         @foreach($cart as $row)
             @php($i+=1)
             <tr>
@@ -36,14 +39,17 @@
             </tr>
             @php($total += $row->products->price*$row['qty'])
         @endforeach
+        </tbody>
+        <tfoot style="display: block;">
         <tr>
-            <td colspan="6"><hr></td>
+            <td style="display: block;"colspan="6"><hr></td>
         </tr>
         <tr>
-            <td style="text-align: center" colspan="2" >Total :</td>
+            <td style="text-align: center;display: block;" colspan="2" >Total :</td>
             <td colspan="2">Rp {{$total}}</td>
-            <td style="text-align: center" colspan="2"><button href="{{route('checkout')}}" class="btn3 size12 txt11">Checkout</button></td>
+            <td style="text-align: center;display: block;" colspan="2"><a href="/checkout" ><button class="btn3 size12 txt11">Checkout</button></a></td>
         </tr>
+        </tfoot>
     </table>
 </div>
 
