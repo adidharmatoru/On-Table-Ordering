@@ -56,7 +56,7 @@
                     @auth
                     <a href="/home">
                         @endauth
-                        <img src="{{ asset('images/icons/logo.png') }}" alt="IMG-LOGO" data-logofixed="images/icons/logo.png">
+                        <img src="{{ asset('images/icons/logo.png') }}" alt="IMG-LOGO" data-logofixed="{{ asset('images/icons/logo.png') }}">
                     </a>
                 </div>
 

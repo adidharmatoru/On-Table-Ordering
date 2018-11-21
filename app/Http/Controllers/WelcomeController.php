@@ -18,6 +18,8 @@ class WelcomeController extends Controller
         $rate = Rate::with('products')->with('users')->get();
         $time = Carbon::now()->format('D, d-M-Y');
         $hour = Carbon::now()->format('H');
-        return view('welcome', compact('gallery'))->with('rate', $rate)->with('special', $special)->with('time', $time)->with('hour', $hour);
+        $counts = Cart::with('products')->where('user_id', Auth::id())->count();
+        $cart = Cart::with('products')->where('user_id', Auth::id())->get();
+        return view('welcome', compact('gallery'))->with('rate', $rate)->with('special', $special)->with('time', $time)->with('hour', $hour)->with('counts', $counts)->with('cart', $cart);
     }
 }

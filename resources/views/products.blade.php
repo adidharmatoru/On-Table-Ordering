@@ -7,7 +7,7 @@
                                                         <a class="" href="images/{{$pro->image}}" data-lightbox="gallery-footer"><img src="images/{{$pro->image}}" alt="IMG-MENU"></a>
                                                     </div>
                                                     <div class="text-blo3 size21 flex-col-l-m">
-                                                        <a href="#" class="txt21 m-b-3">
+                                                        <a href="/products/{{$pro->title}}" class="txt21 m-b-3">
                                                             {{$pro->title}}
                                                         </a>
 

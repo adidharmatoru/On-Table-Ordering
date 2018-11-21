@@ -11,6 +11,8 @@ use App\Transaction;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\InvoiceMail;
 
 class CheckoutController extends Controller
 {
@@ -26,10 +28,6 @@ class CheckoutController extends Controller
 
     public function payment(Request $request){
         $cart = Cart::with('products')->where('user_id', Auth::id())->get();
-        $categories = Categories::all();
-        $rates = Rate::all()->toArray();
-        $data = DB::table('products')->paginate(6);
-        $gallery = Product::all()->random(6);
         $counts = Cart::with('products')->where('user_id', Auth::id())->count();
         $total = $request->input('total');
         if($request->input('paymentMethod') == 'balance'){
@@ -49,10 +47,14 @@ class CheckoutController extends Controller
                 $order->qty = 1;
                 $order->save();
             }
+            $data = array(
+                'cart'      =>  $cart,
+                'transaction_id'   =>   $transaction->id,
+                'counts' => $counts
+            );
+            Mail::to(Auth::user()->email)->send(new InvoiceMail($data));
             Cart::with('products')->where('user_id', Auth::id())->delete();
             return redirect('/home');
-        } elseif ($request->input('paymentMethod') == 'cashier'){
-
         } else{
 
         }

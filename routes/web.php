@@ -45,4 +45,8 @@ Route::get('/checkout', 'CheckoutController@index')->name('checkout');
 
 Route::post('/payment', 'CheckoutController@payment')->name('payment');
 
+Route::get('/products/{prod_name}', 'ProductController@index');
+
+Route::post('/rate', 'ProductController@rate')->name('rate');
+
 
