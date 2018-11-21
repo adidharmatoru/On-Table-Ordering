@@ -43,6 +43,6 @@ Route::get('/contact', 'ContactController@index')->name('contact');
 
 Route::get('/checkout', 'CheckoutController@index')->name('checkout');
 
-Route::get('/payment', 'CheckoutController@payment')->name('payment');
+Route::post('/payment', 'CheckoutController@payment')->name('payment');
 
 

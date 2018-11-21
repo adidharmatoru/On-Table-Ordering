@@ -54,6 +54,7 @@
                             <div class="col-md-8 order-md-1">
                                 <h4 class="mb-3">Billing</h4>
                                 <form class="needs-validation" novalidate="" action="{{'payment'}}" method="POST">
+                                    @csrf
                                     <input type="text" hidden name="total" value="{{$total}}">
                                     <div class="row">
                                         <div class="wrap-inputemail size12 bo2 bo-rad-10 m-t-3 m-b-23 txt10 m-10 pos-relative">
