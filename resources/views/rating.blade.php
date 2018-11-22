@@ -112,14 +112,6 @@
                         </div>
                         <textarea class="bo-rad-10 size29 bo2 txt10 p-l-20 p-t-15 m-b-10 m-t-40" name="comment" placeholder="Comment..."></textarea>
 
-                        <div class="size30 bo2 bo-rad-10 m-t-3 m-b-20">
-                            <input class="bo-rad-10 sizefull txt10 p-l-20" type="text" name="name" placeholder="Name *" value="{{Auth::user()->name}}">
-                        </div>
-
-                        <div class="size30 bo2 bo-rad-10 m-t-3 m-b-20">
-                            <input class="bo-rad-10 sizefull txt10 p-l-20" type="text" name="email" placeholder="Email *" value="{{Auth::user()->email}}">
-                        </div>
-
                         <input hidden name="prod_id" value="{{$products->id}}">
 
                         <!-- Button3 -->

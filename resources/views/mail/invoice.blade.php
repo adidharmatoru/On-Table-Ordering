@@ -111,7 +111,7 @@
                 <table>
                     <tr>
                         <td class="title">
-                            <img src="https://i.imgur.com/rfNDolj.png" align="center" style="width:100%; max-width:100px;">
+                            <img src="https://i.imgur.com/bBsSJDX.png" align="center" style="width:100%; max-width:100px;">
                         </td>
 
                         <td align="justify">

@@ -117,7 +117,7 @@
 
             <div class="col-md-6 p-b-30">
                 <div class="wrap-pic-welcome size2 bo-rad-10 hov-img-zoom m-l-r-auto">
-                    <img src="images/our-story-01.jpg" alt="IMG-OUR">
+                    <img src="images/{{$special->image}}" alt="IMG-OUR">
                 </div>
             </div>
         </div>
@@ -179,7 +179,7 @@
                             <img src="images/40133554_2065037687093795_5761314021852577792_n.jpg" alt="IMG-MENU">
 
                             <!-- Button2 -->
-                            <a href="#" class="btn2 flex-c-m txt5 ab-c-m size4">
+                            <a href="/menu" class="btn2 flex-c-m txt5 ab-c-m size4">
                                 Main
                             </a>
                         </div>
@@ -191,7 +191,7 @@
                             <img src="images/37734259_2030671107197120_7472824391563214848_n.jpg" alt="IMG-MENU">
 
                             <!-- Button2 -->
-                            <a href="#" class="btn2 flex-c-m txt5 ab-c-m size4">
+                            <a href="/menu" class="btn2 flex-c-m txt5 ab-c-m size4">
                                 Beverage
                             </a>
                         </div>
@@ -202,7 +202,7 @@
                             <img src="images/39536055_2059081621022735_4971973675084414976_n.jpg" alt="IMG-MENU">
 
                             <!-- Button2 -->
-                            <a href="#" class="btn2 flex-c-m txt5 ab-c-m size7">
+                            <a href="/menu" class="btn2 flex-c-m txt5 ab-c-m size7">
                                 Snack
                             </a>
                         </div>
@@ -214,7 +214,7 @@
                             <img src="images/37933236_2034394220158142_7285693143217864704_n.jpg" alt="IMG-MENU">
 
                             <!-- Button2 -->
-                            <a href="#" class="btn2 flex-c-m txt5 ab-c-m size8">
+                            <a href="/menu" class="btn2 flex-c-m txt5 ab-c-m size8">
                                 Dessert
                             </a>
                         </div>

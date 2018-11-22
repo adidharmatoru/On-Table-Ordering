@@ -21,7 +21,7 @@
                         @foreach($snack as $sna)
                         <div class="item-mainmenu m-b-36">
                             <div class="flex-w flex-b m-b-3">
-                                <a href="#" class="name-item-mainmenu txt21">
+                                <a href="/products/{{$sna->title}}" class="name-item-mainmenu txt21">
                                     {{$sna->title}}
                                 </a>
 
@@ -50,7 +50,7 @@
                         @foreach($main as $ma)
                         <div class="item-mainmenu m-b-36">
                             <div class="flex-w flex-b m-b-3">
-                                <a href="#" class="name-item-mainmenu txt21">
+                                <a href="/products/{{$ma->title}}" class="name-item-mainmenu txt21">
                                     {{$ma->title}}
                                 </a>
 
@@ -79,7 +79,7 @@
                         @foreach($beverage as $ma)
                             <div class="item-mainmenu m-b-36">
                                 <div class="flex-w flex-b m-b-3">
-                                    <a href="#" class="name-item-mainmenu txt21">
+                                    <a href="/products/{{$ma->title}}" class="name-item-mainmenu txt21">
                                         {{$ma->title}}
                                     </a>
 
@@ -110,7 +110,7 @@
                         @foreach($dessert as $ma)
                             <div class="item-mainmenu m-b-36">
                                 <div class="flex-w flex-b m-b-3">
-                                    <a href="#" class="name-item-mainmenu txt21">
+                                    <a href="/products/{{$ma->title}}" class="name-item-mainmenu txt21">
                                         {{$ma->title}}
                                     </a>
 
