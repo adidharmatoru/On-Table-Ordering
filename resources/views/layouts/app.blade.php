@@ -73,12 +73,6 @@
                             </li>
 
                             <li>
-                                <a href="/about">About</a>
-                            </li>
-
-                            <li>
-                                <a href="/contact">Contact</a>
-                            </li>
                         </ul>
                     </nav>
                 </div>
@@ -379,6 +373,28 @@
             fetch_product_cat(query);
         });
 
+    });
+</script></html>
+<script>
+    $(".password").click(function () {
+        $(this).toggleClass("fa-eye fa-eye-slash");
+        var input = $($(this).attr("toggle"));
+        var x = document.getElementById("password");
+        if (x.type === "password") {
+            x.type = "text";
+        } else {
+            x.type = "password";
+        }
+    });
+    $(".confirm").click(function () {
+        $(this).toggleClass("fa-eye fa-eye-slash");
+        var input = $($(this).attr("toggle"));
+        var x = document.getElementById("password-confirm");
+        if (x.type === "password") {
+            x.type = "text";
+        } else {
+            x.type = "password";
+        }
     });
 </script>
 </body>

@@ -78,7 +78,7 @@
 
                                 <div class="wrap-inputemail size12 bo2 bo-rad-10 m-t-3 m-b-23 txt10 m-10 pos-relative">
                                     <input id="password" type="password" class="bo-rad-10 sizefull txt10 p-l-20{{ $errors->has('password') ? 'is-invalid' : '' }}" name="password" required placeholder="Password">
-                                    <i class="fa fa-key ab-r-m m-r-18" aria-hidden="true"></i>
+                                    <i class="fa fa-fw fa-eye password ab-r-m m-r-18" style="cursor: pointer;" aria-hidden="true"></i>
                                     @if ($errors->has('password'))
                                         <span class="invalid-feedback" role="alert">
                                         <strong>{{ $errors->first('password') }}</strong>
@@ -95,7 +95,7 @@
 
                                 <div class="wrap-inputemail size12 bo2 bo-rad-10 m-t-3 m-b-23 txt10 m-10 pos-relative">
                                     <input id="password-confirm" type="password" class="bo-rad-10 sizefull txt10 p-l-20" name="password_confirmation" required placeholder="Password">
-                                    <i class="fa fa-key ab-r-m m-r-18" aria-hidden="true"></i>
+                                    <i class="fa fa-fw fa-eye confirm ab-r-m m-r-18" style="cursor: pointer;" aria-hidden="true"></i>
                                     @if ($errors->has('password'))
                                         <span class="invalid-feedback" role="alert">
                                         <strong>{{ $errors->first('password') }}</strong>

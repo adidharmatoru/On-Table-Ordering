@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Cart;
 use App\Categories;
+use App\Order;
 use App\Product;
 use App\Rate;
 use App\Transaction;
@@ -45,9 +46,13 @@ class HomeController extends Controller
             $categories = Categories::all();
             $product_count = Product::all()->count();
             $transaction_count = Transaction::all()->count();
+            $allpro = Product::all();
             $products = Product::with('categories')->paginate(6);
+            foreach ($allpro as $product){
+                $order_count[] = Order::select('qty')->where('product_id', $product->id)->count();
+            }
             $income = Transaction::all();
-            return view('admin.home', $users)->with('products', $products)->with('user_count', $user_count)->with('product_count', $product_count)->with('transaction_count', $transaction_count)->with('categories', $categories)->with('income', $income);
+            return view('admin.home', $users)->with('products', $products)->with('user_count', $user_count)->with('product_count', $product_count)->with('transaction_count', $transaction_count)->with('categories', $categories)->with('income', $income)->with('order_count', $order_count);
         }
     }
 
@@ -75,15 +80,7 @@ class HomeController extends Controller
             $product->image = $input['image'];
             $product->keyword = $title;
             $product->save();
-        $users = User::all();
-        $user_count = User::where('admin', 0)->count();
-        $categories = Categories::all();
-        $product_count = Product::all()->count();
-        $transaction_count = Transaction::all()->count();
-        $products = Product::with('categories')->paginate(6);
-        $income = Transaction::all();
-        $income += $income->amount;
-        return view('admin.home', $users)->with('products', $products)->with('user_count', $user_count)->with('product_count', $product_count)->with('transaction_count', $transaction_count)->with('categories', $categories)->with('income', $income);
+            return redirect('/home');
     }
 
     public function special(Request $request)

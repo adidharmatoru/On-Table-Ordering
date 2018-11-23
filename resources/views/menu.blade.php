@@ -33,7 +33,7 @@
                             </div>
 
                             <span class="info-item-mainmenu txt23">
-								{{$sna->description}}
+								{!!html_entity_decode($sna->description)!!}
 							</span>
                         </div>
                         @endforeach
@@ -62,7 +62,7 @@
                             </div>
 
                             <span class="info-item-mainmenu txt23">
-								{{$ma->description}}
+								{!!html_entity_decode($ma->description)!!}
 							</span>
                         </div>
                         @endforeach
@@ -91,7 +91,7 @@
                                 </div>
 
                                 <span class="info-item-mainmenu txt23">
-								{{$ma->description}}
+								{!!html_entity_decode($ma->description)!!}
 							</span>
                             </div>
                         @endforeach
@@ -122,7 +122,7 @@
                                 </div>
 
                                 <span class="info-item-mainmenu txt23">
-								{{$ma->description}}
+								{!!html_entity_decode($ma->description)!!}
 							</span>
                             </div>
                         @endforeach

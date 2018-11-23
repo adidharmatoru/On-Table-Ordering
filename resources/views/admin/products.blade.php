@@ -1,3 +1,4 @@
+@php($i = ($products->currentpage()-1)* $products->perpage())
 @foreach($products as $pro)
         <div class="item-row" id="item-{{$pro->id}}">
             <div class="item-col fixed item-col-img">
@@ -14,7 +15,7 @@
             </div>
             <div class="item-col item-col-sales">
                 <div class="item-heading">Sales</div>
-                <div>4958</div>
+                    <div>{{$order_count[$i]}}</div>
             </div>
             <div class="item-col item-col-stats">
                 <label>
@@ -52,5 +53,6 @@
                 </div>
             </div>
         </div>
+    @php($i += 1)
 @endforeach
 {!! $products->links() !!}

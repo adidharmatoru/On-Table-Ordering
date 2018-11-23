@@ -45,8 +45,8 @@ Route::get('/checkout', 'CheckoutController@index')->name('checkout');
 
 Route::post('/payment', 'CheckoutController@payment')->name('payment');
 
-Route::get('/products/{prod_name}', 'ProductController@index');
+Route::get('/products/{prod_name}', 'ProductController@index')->middleware('auth');
 
-Route::post('/rate', 'ProductController@rate')->name('rate');
+Route::post('/rate', 'ProductController@rate')->name('rate')->middleware('auth');
 
 

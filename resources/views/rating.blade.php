@@ -60,7 +60,7 @@
                         <!-- - -->
                         <div class="text-blo4 p-t-33">
                             <h4 class="p-b-16">
-                                <a href="blog-detail.html" class="tit9">Cooking recipe Delicious</a>
+                                <a href="blog-detail.html" class="tit9">{{$products->title}}</a>
                             </h4>
 
                             <div class="txt32 flex-w p-b-24">
@@ -81,7 +81,7 @@
                             </div>
 
                             <p>
-                                {{$products->description}}
+                                {!!html_entity_decode($products->description)!!}
                             </p>
                         </div>
                     </div>

@@ -10,9 +10,8 @@
                                                         <a href="/products/{{$pro->title}}" class="txt21 m-b-3">
                                                             {{$pro->title}}
                                                         </a>
-
                                                         <span class="txt23">
-								{{$pro->description}}
+								{!!html_entity_decode($pro->description)!!}
 							</span>
 
                                                         <span class="txt22 m-t-20">

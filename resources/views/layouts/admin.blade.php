@@ -500,7 +500,7 @@
         <!-- addMenu -->
 
         $(document).on('click', '.submit-new', function () {
-            document.getElementById('desc-inp').value = document.getElementById('desc-new').innerHTML;
+            document.getElementById('desc-inp').value = $('.ql-editor').html();
         });
     });
 </script>
