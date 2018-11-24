@@ -10,7 +10,7 @@
     <article class="content dashboard-page">
         <section class="section">
             <div class="row sameheight-container">
-                <div class="col col-12 col-sm-12 col-md-6 col-xl-12 stats-col">
+                <div class="col col-12 col-sm-12 col-md-6 col-xl-8 stats-col">
                     <div class="card sameheight-item stats" data-exclude="xs">
                         <div class="card-block">
                             <div class="title-block">
@@ -69,6 +69,18 @@
                         </div>
                     </div>
                 </div>
+                <div class="col-xl-4">
+                    <div class="card sameheight-item sales-breakdown" data-exclude="xs,sm,lg">
+                        <div class="card-header">
+                            <div class="header-block">
+                                <h3 class="title"> Sales breakdown </h3>
+                            </div>
+                        </div>
+                        <div class="card-block">
+                            <div class="dashboard-sales-breakdown-chart" id="dashboard-sales-breakdown-chart"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
         <section class="section">
@@ -77,7 +89,7 @@
                     <div class="card sameheight-item items" data-exclude="xs,sm,lg">
                         <div class="card-header bordered">
                             <div class="header-block">
-                                <h3 class="title"> Highest Selling Items </h3>
+                                <h3 class="title"> All Items </h3>
                                 <a href="#" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modal-insert"> Add new </a>
                             </div>
                             <div class="header-block pull-right">

@@ -503,6 +503,50 @@
             document.getElementById('desc-inp').value = $('.ql-editor').html();
         });
     });
+
+    $(function() {
+
+        var $dashboardSalesBreakdownChart = $('#dashboard-sales-breakdown-chart');
+
+        if (!$dashboardSalesBreakdownChart.length) {
+            return false;
+        }
+
+        function drawSalesChart() {
+
+            $dashboardSalesBreakdownChart.empty();
+
+            Morris.Donut({
+                element: 'dashboard-sales-breakdown-chart',
+                data: [
+                        @php($i = 0)
+                        @foreach($allpro as $pro)
+                    {
+                    label: "{{$pro->title}}",
+                    value: "{{$order_count[$i]}}"
+                }, @php($i += 1)
+                    @endforeach
+                ],
+                resize: true,
+                colors: [
+                    tinycolor('#85CE36').lighten(10).toString(),
+                    tinycolor('#85CE36').darken(10).toString(),
+                    '#85CE36'
+                ],
+            });
+
+            var $sameheightContainer = $dashboardSalesBreakdownChart.closest(".sameheight-container");
+
+            setSameHeights($sameheightContainer);
+        }
+
+        drawSalesChart();
+
+        $(document).on("themechange", function() {
+            drawSalesChart();
+        });
+
+    })
 </script>
 </body>
 
