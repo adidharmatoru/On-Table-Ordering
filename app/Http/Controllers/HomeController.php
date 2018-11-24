@@ -45,6 +45,7 @@ class HomeController extends Controller
             $user_count = User::where('admin', 0)->count();
             $categories = Categories::all();
             $product_count = Product::all()->count();
+            $pending = Transaction::where('transaction', 'Pending')->paginate(6);
             $transaction_count = Transaction::all()->count();
             $allpro = Product::all();
             $products = Product::with('categories')->paginate(6);
@@ -52,7 +53,7 @@ class HomeController extends Controller
                 $order_count[] = Order::select('qty')->where('product_id', $product->id)->count();
             }
             $income = Transaction::all();
-            return view('admin.home', $users)->with('products', $products)->with('user_count', $user_count)->with('product_count', $product_count)->with('transaction_count', $transaction_count)->with('categories', $categories)->with('income', $income)->with('order_count', $order_count)->with('allpro', $allpro);
+            return view('admin.home', $users)->with('products', $products)->with('user_count', $user_count)->with('product_count', $product_count)->with('transaction_count', $transaction_count)->with('categories', $categories)->with('income', $income)->with('order_count', $order_count)->with('allpro', $allpro)->with('pending', $pending);
         }
     }
 

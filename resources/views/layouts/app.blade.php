@@ -314,6 +314,7 @@
                 url:'{{route('addtocart')}}',
                 data: {id:id},
                 success:function (data) {
+                    swal("Success!", "Your product added to cart!", "success");
                     $('#cart').html(data);
                 }
             });
@@ -375,7 +376,7 @@
         });
 
     });
-</script></html>
+</script>
 <script>
     $(".password").click(function () {
         $(this).toggleClass("fa-eye fa-eye-slash");
@@ -398,5 +399,7 @@
         }
     });
 </script>
+{{$script = $swal ?? ''}}
+{!!html_entity_decode($script)!!}
 </body>
 </html>

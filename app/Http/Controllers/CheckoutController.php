@@ -54,9 +54,39 @@ class CheckoutController extends Controller
             );
             Mail::to(Auth::user()->email)->send(new InvoiceMail($data));
             Cart::with('products')->where('user_id', Auth::id())->delete();
-            return redirect('/home');
+            $swal = '<script>swal("Success!", "Your order have been paid using your balance!", "success");</script>';
+            $cart = Cart::with('products')->where('user_id', Auth::id())->get();
+            $categories = Categories::all();
+            $rates = Rate::all()->toArray();
+            $data = DB::table('products')->paginate(6);
+            $gallery = Product::all()->random(6);
+            $counts = Cart::with('products')->where('user_id', Auth::id())->count();
+            return view('home', compact('cart'))->with('categories', $categories)->with('rates', $rates)->with('data', $data)->with('gallery', $gallery)->with('counts', $counts)->with('swal', $swal);
         } else{
-
+            $total = $request->input('total');
+            $transaction = new Transaction();
+            $transaction->user_id = Auth::id();
+            $transaction->transaction = 'Pending';
+            $transaction->amount = $total;
+            $transaction->save();
+            foreach ($cart as $cr){
+                $order = new Order();
+                $order->transaction_id = $transaction->id;
+                $order->product_id = $cr->product_id;
+                $order->user_id = Auth::id();
+                $order->qty = 1;
+                $order->save();
+            }
+            $message2 = "Success! Checkout-ID: $transaction->id";
+            $message = "Please go to the cashier and pay Rp $total";
+            $swal = "<script>swal('$message2', '$message', 'success');</script>";
+            Cart::with('products')->where('user_id', Auth::id())->delete();
+            $categories = Categories::all();
+            $rates = Rate::all()->toArray();
+            $data = DB::table('products')->paginate(6);
+            $gallery = Product::all()->random(6);
+            $counts = Cart::with('products')->where('user_id', Auth::id())->count();
+            return view('home', compact('cart'))->with('categories', $categories)->with('rates', $rates)->with('data', $data)->with('gallery', $gallery)->with('counts', $counts)->with('swal', $swal);
         }
 
     }

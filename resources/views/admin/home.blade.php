@@ -89,6 +89,109 @@
                     <div class="card sameheight-item items" data-exclude="xs,sm,lg">
                         <div class="card-header bordered">
                             <div class="header-block">
+                                <h3 class="title"> Pending Items </h3>
+                                <a href="#" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modal-insert"> Add new </a>
+                            </div>
+                            <div class="header-block pull-right">
+                                <label class="search">
+                                    <input class="search-input" placeholder="search...">
+                                    <i class="fa fa-search search-icon"></i>
+                                </label>
+                            </div>
+                        </div>
+                        <ul class="item-list striped">
+                            <li id="products" class="item">
+                                <div class="item-row">
+                                    <div class="item-col fixed item-col-stats">
+                                        <div>No</div>
+                                    </div>
+                                    <div class="item-col fixed item-col-stats">
+                                        <div>Id</div>
+                                    </div>
+                                    <div class="item-col fixed item-col-stats">
+                                        <div>
+                                                Name
+                                        </div>
+                                    </div>
+                                    <div class="item-col fixed item-col-stats">
+                                        <div>Amount</div>
+                                    </div>
+                                    <div class="item-col fixed item-col-stats">
+                                        <div> DateTime </div>
+                                    </div>
+                                    <div class="item-col fixed item-col-stats">
+                                        Action
+                                    </div>
+                                </div>
+                            </li>
+                            <li id="product_properties" class="item">
+                                @php($i = ($products->currentpage()-1)* $products->perpage() + 1)
+                                @foreach($pending as $pro)
+                                    <div class="item-row" id="item-{{$pro->id}}">
+                                        <div class="item-col fixed item-col-stats">
+                                            <a href="#">
+                                                <div>{{$i}}</div>
+                                            </a>
+                                        </div>
+                                        <div class="item-col fixed item-col-stats">
+                                            <a href="#">
+                                                <div>{{$pro->id}}</div>
+                                            </a>
+                                        </div>
+                                        <div class="item-col fixed item-col-stats">
+                                            <div>
+                                                <a href="#" class="">
+                                                    <h4 class="item-title no-wrap"> {{$pro->users->name}} </h4>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="item-col fixed item-col-stats">
+                                            <a href="#">
+                                                <div>{{$pro->amount}}</div>
+                                            </a>
+                                        </div>
+                                        <div class="item-col fixed item-col-stats">
+                                            <a href="#">
+                                                <div>{{$pro->created_at}}</div>
+                                            </a>
+                                        </div>
+                                        <div class="item-col fixed item-col-stats">
+                                            <div class="item-actions-dropdown">
+                                                <a class="item-actions-toggle-btn">
+                                                <span class="inactive">
+                                                    <i class="fa fa-cog"></i>
+                                                </span>
+                                                    <span class="active">
+                                                    <i class="fa fa-chevron-circle-right"></i>
+                                                </span>
+                                                </a>
+                                                <div class="item-actions-block">
+                                                    <ul class="item-actions-list">
+                                                        <li>
+                                                            <a class="remove" id="{{$pro->id}}" href="#" data-toggle="modal" data-target="#confirm-modal">
+                                                                <i class="fa fa-trash-o "></i>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    @php($i += 1)
+                                @endforeach
+                                {!! $products->links() !!}
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section">
+            <div class="row sameheight-container">
+                <div class="col-xl-12">
+                    <div class="card sameheight-item items" data-exclude="xs,sm,lg">
+                        <div class="card-header bordered">
+                            <div class="header-block">
                                 <h3 class="title"> All Items </h3>
                                 <a href="#" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modal-insert"> Add new </a>
                             </div>
@@ -124,7 +227,7 @@
                                         </div>
                                     </div>
                                     <div class="item-col item-col-stats">
-                                        <div> DateTme </div>
+                                        <div> DateTime </div>
                                     </div>
                                     <div class="item-col fixed item-col-actions-dropdown">
                                         Action
