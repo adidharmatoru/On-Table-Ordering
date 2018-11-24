@@ -95,7 +95,7 @@
                                                      document.getElementById('logout-form').submit();"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a>
                             </div>
                         </div>
-                            <a href="/wallet" ><i class="fa fa-money m-l-21" aria-hidden="true"></i> Rp {{ Auth::user()->balance() }}</a>
+                            <a href="#" onclick="event.preventDefault()" ><i class="fa fa-money m-l-21" aria-hidden="true"></i> Rp {{ Auth::user()->balance() }}</a>
                         <div id="cart" class="dropdown">
                             @include('cart')
                         </div>
@@ -244,6 +244,7 @@
 </div>
 <!--===============================================================================================-->
 <script type="text/javascript" src="{{ asset('assets/jquery/jquery-3.2.1.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/SweetAlert.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/SmoothScroll.min.js') }}"></script>
 <!--===============================================================================================-->
 <script type="text/javascript" src="{{ asset('assets/bootstrap/js/popper.js') }}"></script>

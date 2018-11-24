@@ -26,10 +26,10 @@
                 <td>Action</td>
             </tr>
         </thead>
-        <tbody style="display: block; height: 300px;overflow-y: auto;">
+        <tbody style="display: block; min-height: 150px; max-height: 300px;overflow-y: auto;table-layout:fixed;">
         @foreach($cart as $row)
             @php($i+=1)
-            <tr>
+            <tr style="display: table">
                 <td valign="middle">{{$i}}.</td>
                 <td><img width="90px" height="120px" src="{{ asset('images')}}/{{$row->products->image}}" alt=""></td>
                 <td valign="middle">{{$row->products->title}}</td>
@@ -42,12 +42,12 @@
         </tbody>
         <tfoot style="display: block;">
         <tr>
-            <td style="display: block;"colspan="6"><hr></td>
-        </tr>
-        <tr>
-            <td style="text-align: center;display: block;" colspan="2" >Total :</td>
-            <td colspan="2">Rp {{$total}}</td>
-            <td style="text-align: center;display: block;" colspan="2"><a href="/checkout" ><button class="btn3 size12 txt11">Checkout</button></a></td>
+            <td></td>
+            <td>Total :</td>
+            <td></td>
+            <td>Rp {{$total}}</td>
+            <td style="padding-right: 60px"></td>
+            <td><a href="/checkout" ><button class="btn3 size12 txt11">Checkout</button></a></td>
         </tr>
         </tfoot>
     </table>
