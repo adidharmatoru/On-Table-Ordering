@@ -399,7 +399,7 @@
         }
     });
 </script>
-{{$script = $swal ?? ''}}
+{{$script = session('swal') ?? ''}}
 {!!html_entity_decode($script)!!}
 </body>
 </html>
