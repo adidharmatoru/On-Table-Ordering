@@ -89,7 +89,7 @@
                         <div class="dropdown">
                             <a href="#" ><i class="fa fa-user m-l-21" aria-hidden="true"></i> Hi, {{ Auth::user()->fname() }}</a>
                             <div id="profileDrop" class="dropdown-content">
-                                <a href="#about"><i class="fa fa-user" aria-hidden="true"></i> Profile</a>
+                                <a href="/profile"><i class="fa fa-user" aria-hidden="true"></i> Profile</a>
                                 <a href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a>

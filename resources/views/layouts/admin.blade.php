@@ -465,6 +465,7 @@
 </div>
 </div>
 <script type="text/javascript" src="{{ asset('js/SmoothScroll.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/SweetAlert.js') }}"></script>
 <script src="js/vendor.js"></script>
 <script src="js/admin.js"></script>
 <script>
@@ -496,6 +497,20 @@
                 });
             });
         });
+
+        <!-- finish order -->
+
+            $(document).on('click', '.finish', function () {
+                var id = $(this).attr('id');
+                swal("Success!", "Order #" +id +" Finished!", "success");
+                $.ajax({
+                    url: '{{route('finish_order')}}',
+                    data: {id: id},
+                    success: function (data) {
+                        location.reload();
+                    }
+                });
+            });
 
         <!-- addMenu -->
 
@@ -548,6 +563,8 @@
 
     })
 </script>
+{{$script = session('swal') ?? ''}}
+{!!html_entity_decode($script)!!}
 </body>
 
 </html>

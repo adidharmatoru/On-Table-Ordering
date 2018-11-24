@@ -1231,8 +1231,7 @@ label,
             flex-grow: 0;
     -ms-flex-negative: 0;
         flex-shrink: 0;
-    -ms-flex-preferred-size: auto;
-        flex-basis: auto; }
+    -ms-flex-preferred-size: auto;}
   .item-list .item-col.pull-left {
     margin-right: auto; }
   .item-list .item-col.pull-right {

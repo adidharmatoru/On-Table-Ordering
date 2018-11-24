@@ -49,4 +49,11 @@ Route::get('/products/{prod_name}', 'ProductController@index')->middleware('auth
 
 Route::post('/rate', 'ProductController@rate')->name('rate')->middleware('auth');
 
+Route::post('/topup', 'HomeController@topup')->name('topup')->middleware('auth');
+
+Route::get('/finishorder', 'HomeController@finish_order')->name('finish_order')->middleware('auth');
+
+Route::get('/profile', 'HomeController@profile')->name('profile')->middleware('auth');
+
+Route::post('/update', 'HomeController@update')->name('update')->middleware('auth');
 
