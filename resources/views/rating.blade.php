@@ -43,9 +43,7 @@
                     <div class="blo4 p-b-63">
                         <!-- - -->
                         <div class="pic-blo4 hov-img-zoom bo-rad-10 pos-relative">
-                            <a href="blog-detail.html">
                                 <img src="{{asset('images')}}/{{$products->image}}" alt="IMG-BLOG">
-                            </a>
 
                             <div class="date-blo4 flex-col-c-m">
 									<span class="txt13 m-b-4">
@@ -59,8 +57,8 @@
 
                         <!-- - -->
                         <div class="text-blo4 p-t-33">
-                            <h4 class="p-b-16">
-                                <a href="blog-detail.html" class="tit9">{{$products->title}}</a>
+                            <h4 class="p-b-16 tit9">
+                                {{$products->title}}
                             </h4>
 
                             <div class="txt32 flex-w p-b-24">
