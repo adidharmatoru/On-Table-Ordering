@@ -140,9 +140,9 @@
                         </td>
 
                         <td align="right">
-                            @adidharmatoru<br>
-                            @LittleGrass<br>
-                            <a href="localhost/">Order again?</a>
+                            {{Auth::user()->address}}
+                            <br>
+                            {{Auth::user()->phone_num}}
                         </td>
                     </tr>
                 </table>

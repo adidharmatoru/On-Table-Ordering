@@ -107,11 +107,6 @@
                     <p class="t-center m-b-22 size3 m-l-r-auto">
                         Little Grass Cafe adalah cafetaria sederhana dengan konsep nyaman dan banyak tumbuhan gantung untuk menambah kesan sejuk dan hijau. Dengan menu makanan yang unik dan ramah di kantong untuk membuat nongkrong kalian makin asik!
                     </p>
-
-                    <a href="/about" class="txt4">
-                        Our Story
-                        <i class="fa fa-long-arrow-right m-l-10" aria-hidden="true"></i>
-                    </a>
                 </div>
             </div>
 
